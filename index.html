@@ -9,6 +9,10 @@
 <body>
     
     <script>
+        //create variables humanScore and computerScore to keep 
+        //track of the score
+        let humanScore = 0;
+        let computerScore = 0;
         //create a function called getComputerChoice
         //randomly return 1, 2, or 3
         //if it is 1 return rock, else if paper is returned 
@@ -30,7 +34,57 @@
         function getHumanChoice() {
             userChoice = window.prompt("Pick rock, paper or scizzors");
             userChoice = userChoice.toLowerCase();
+            return userChoice;
         }
+
+        //create function playRound to play a single round
+        //use the parameters humanChoice and computerChoice
+        //to take the human and computer choices as arguments
+        //use toLowerCase method to make humanChoice case-insensitive
+        //output a sentence
+        //increment whoever won by 1
+        function playRound(humanChoice,computerChoice) {
+            if (humanChoice == "rock") {
+                if (computerChoice == "rock") {
+                    console.log("It's a tie")
+                }
+                else if (computerChoice == "paper") {
+                    console.log("You lose! Paper beats Rock");
+                    computerScore++;
+                } else {
+                    console.log("You Win! Rock beats scizzors");
+                    humanScore++;
+                }
+            } else if (humanChoice == "paper") {
+                if (computerChoice == "rock") {
+                    console.log("You Win! Paper beats Rock")
+                    humanScore++;
+                }
+                else if (computerChoice === "paper") {
+                    console.log("It's a tie");
+                } else {
+                    console.log("You lose! Scizzors beats Paper");
+                    computerScore++;
+                }
+        } else if (humanChoice == "scizzors") {
+                if (computerChoice == "rock") {
+                    console.log("You lose! Rock beats Scizzors")
+                    computerScore++;
+                }
+                else if (computerChoice == "paper") {
+                    console.log("You Win! Scizzors beats Paper");
+                    humanScore++;
+                } else {
+                    console.log("It's a tie");
+                }
+            } else {
+                console.log("invalid input");
+            }
+
+        }
+    
+        playRound(getHumanChoice(), getComputerChoice());
+
 
     </script>
 </html>
