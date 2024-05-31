@@ -11,8 +11,6 @@
     <script>
         //create variables humanScore and computerScore to keep 
         //track of the score
-        let humanScore = 0;
-        let computerScore = 0;
         //create a function called getComputerChoice
         //randomly return 1, 2, or 3
         //if it is 1 return rock, else if paper is returned 
@@ -37,12 +35,20 @@
             return userChoice;
         }
 
+        
+        
+    
+        function playGame() {
+        let humanScore = 0;
+        let computerScore = 0;
+
         //create function playRound to play a single round
         //use the parameters humanChoice and computerChoice
         //to take the human and computer choices as arguments
         //use toLowerCase method to make humanChoice case-insensitive
         //output a sentence
         //increment whoever won by 1
+
         function playRound(humanChoice,computerChoice) {
             if (humanChoice == "rock") {
                 if (computerChoice == "rock") {
@@ -82,9 +88,24 @@
             }
 
         }
-    
+
+        playRound(getHumanChoice(), getComputerChoice());
+        playRound(getHumanChoice(), getComputerChoice());
+        playRound(getHumanChoice(), getComputerChoice());
+        playRound(getHumanChoice(), getComputerChoice());
         playRound(getHumanChoice(), getComputerChoice());
 
+        if (humanScore > computerScore) {
+            console.log(`Congrats! You have won ${humanScore} games and lost ${computerScore} games. You are the Winner!`)
+        } else if (computerScore > humanScore) {
+            console.log(`Sorry! You have lost ${computerScore} games and won ${humanScore} games. You Lost!`)
+        } else {
+            console.log(`It's a tie! You have won ${humanScore} games and lost ${computerScore} games.`)
+        }
+
+        }
+
+        playGame();
 
     </script>
 </html>
